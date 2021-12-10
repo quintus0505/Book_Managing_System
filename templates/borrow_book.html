@@ -1,0 +1,100 @@
+{#{% extends 'base.html' %}#}
+<html lang="en">
+    <body>
+        <nav>
+            <ul class="nav">
+                <li><a href="/">首页</a></li>
+                <li><a href="{% url 'user_info' %}">用户信息</a></li><br />
+            </ul>
+        </nav>
+{#    主体表格，显示图书所有信息#}
+    {% block content %}
+        <p>借阅记录</p>
+            <table border="1">
+            <tr>
+                <th>图书名称</th>
+                <th>借出日期</th>
+                <th>归还日期</th>
+                <th>归还状态</th>
+            </tr>
+                {% for borrow in user_return %}
+                <tr>
+                <td>{{borrow.book_name}}</td>
+                <td>{{borrow.borrow_time}}</td>
+                <td>{{borrow.return_time}}</td>
+                <td>{{borrow.is_return}}</td>
+                </tr>
+                {% endfor %}
+                {% for borrow in user_borrow %}
+                <tr>
+                <td>{{borrow.book_name}}</td>
+                <td>{{borrow.borrow_time}}</td>
+                <td>{{borrow.return_time}}</td>
+                <td>{{borrow.is_return}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        <p>借阅未归还图书</p>
+            <table border="1">
+            <tr>
+                <th>图书ID</th>
+                <th>图书名称</th>
+                <th>ISBN</th>
+                <th>出版日期</th>
+                <th>作者</th>
+                <th>标签</th>
+            </tr>
+                {% for book in Borrowed_Books %}
+                <tr>
+                <td>{{book.book_id}}</td>
+                <td>{{book.book_name}}</td>
+                <td>{{book.ISBN}}</td>
+                <td>{{book.publish_date}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.label}}</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value={{book.book_id}}>
+                        <input type="submit" name="return_book" value="归还">
+                    </form>
+                <td>
+                </tr>
+                {% endfor %}
+            </table>
+        <p>现有图书</p>
+            <table border="1">
+            <tr>
+                <th>图书ID</th>
+                <th>图书名称</th>
+                <th>ISBN</th>
+                <th>出版日期</th>
+                <th>作者</th>
+                <th>标签</th>
+                <th>可借数量</th>
+                <th>总数量</th>
+                <th>可借状态</th>
+            </tr>
+            {% for book in Books %}
+                <tr>
+                <td>{{book.book_id}}</td>
+                <td>{{book.book_name}}</td>
+                <td>{{book.ISBN}}</td>
+                <td>{{book.publish_date}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.label}}</td>
+                <td>{{book.current_number}}</td>
+                <td>{{book.total_number}}</td>
+                <td>{{book.can_borrow}}</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value={{book.book_id}}>
+                        <input type="submit" name="confirm_borrow_book" value="借阅">
+                    </form>
+                <td>
+                </tr>
+{#            <p>{{book.book_name}},{{book.total_number}}</p>#}
+            {% endfor %}
+            </table>
+    {% endblock %}
+    </body>
+</html>

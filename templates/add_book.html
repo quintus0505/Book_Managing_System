@@ -1,0 +1,44 @@
+{#{% extends 'base.html' %}#}
+ 
+{% block content %}
+    <li><a href="/">首页</a></li>
+    <li><a href="{% url 'book_info' %}">图书信息</a></li>
+    <form action="" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <td>书名</td>
+                    <td><input type="text" name="book_name"></td>
+                </tr>
+                <tr>
+                    <td>ISBN</td>
+                    <td><input type="text" name="ISBN"></td>
+                </tr>
+                <tr>
+                    <td>出版社</td>
+                    <td><input type="text" name="publisher"></td>
+                </tr>
+                <tr>
+                    <td>出版年月</td>
+                    <td><input type="text" name="publish_date"></td>
+                </tr>
+                <tr>
+                    <td>作者</td>
+                    <td><input type="text" name="author"></td>
+                </tr>
+                <tr>
+                    <td>标签</td>
+                    <td><input type="text" name="label"></td>
+                </tr>
+                <tr>
+                    <td>图书馆持有总数量</td>
+                    <td><input type="number" name="total_number"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="提交"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{#{% extends 'base.html' %}#}
+ 
+{% block content %}
+    <li><a href="/">首页</a></li>
+    <li><a href="{% url 'user_info' %}">用户信息</a></li>
+    <form action="" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <td>读者姓名</td>
+                    <td><input type="text" name="user_name"></td>
+                </tr>
+                <tr>
+                    <td>读者类型</td>
+                    <td><input type="text" name="user_type"></td>
+                </tr>
+                <tr>
+                    <td>读者电话</td>
+                    <td><input type="text" name="tele"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="提交"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

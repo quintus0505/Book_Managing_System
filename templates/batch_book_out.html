@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <nav>
+        <ul class="nav">
+            <li><a href="/">首页</a></li>
+            <li><a href="{% url 'book_info' %}">图书信息</a></li>
+        </ul>
+    </nav>
+</body>
+    <p>现有图书</p>
+        <form action="" method="post">
+        <table border="1">
+        <tr>
+            <th>图书ID</th>
+            <th>图书名称</th>
+            <th>可借数量</th>
+            <th>总数量</th>
+            <th>出库数量</th>
+            <th>
+                <input type="submit" name="batch_book_in" value="批量出库">
+            </th>
+        </tr>
+        {% for book in Books %}
+            <tr>
+            <td>{{book.book_id}}</td>
+            <td>{{book.book_name}}</td>
+            <td>{{book.current_number}}</td>
+            <td>{{book.total_number}}</td>
+                <td>
+                        <input type="hidden" name="id" value={{book.book_id}}>
+                        <input type="text" name="out_number">
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        </form>
+
+</html>

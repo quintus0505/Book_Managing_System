@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统</title>
+    <link rel="stylesheet" href="{% static 'front/index.css' %}">
+</head>
+<body>
+    <nav>
+        <ul class="nav">
+            <li><a href="/">首页</a></li>
+{#            <li><a href="{% url 'add_book' %}">发布图书</a></li>#}
+{#            <li><a href="{% url 'book_info' %}">图书信息</a></li>#}
+        </ul>
+    </nav>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

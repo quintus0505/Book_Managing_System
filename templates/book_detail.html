@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+    <p>书名：{{ book.1 }}</p>
+    <p>ISBN出版社：{{ book.2 }}</p>
+    <p>出版年月：{{ book.3 }}</p>
+    <p>作者：{{ book.4 }}</p>
+    <p>标签：{{ book.5 }}</p>
+    <p>图书馆现有量：{{ book.6 }}</p>
+    <p>图书馆持有总量：{{ book.7 }}</p>
+    <form action="{% url 'delete_book' %}" method="post">
+        <input type="hidden" name="book_id" value="{{ book.0 }}">
+        <input type="submit" value="删除图书">
+    </form>
+{% endblock %}
