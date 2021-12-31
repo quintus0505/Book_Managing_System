@@ -53,8 +53,5 @@ Creating a toy example for Book Management System
  4. 图书入库和出库功能，建议安排在图书显示界面。
  5. 在每个子菜单下面需要考虑用户可能会继续操作，也可能希望返回主菜单。
 
-## 上机实验验收和报告提交：
-第5次上机实验为验收最后期限。验收之后一周内，需要提交一份简单的实验报告，
-包括系统架构和实现思路，代码文件作为附件提交给助教。
 
-使用说明: 参考CSDN博客:
+使用说明: 参考CSDN博客:[https://blog.csdn.net/quintus0505/article/details/121444408](https://blog.csdn.net/quintus0505/article/details/121444408)
